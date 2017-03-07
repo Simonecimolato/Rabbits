@@ -1,30 +1,25 @@
 float pop = 0.5;  //must be between 0 and 1
 float nextPop;  
-float lambda = 0.5; //must be between 0 and 4
-float step = 0.005;
-float timing;
+float step = 0.000005;
 
 void setup(){
-size(1280,720);  
-background(0);
-println("Loops: " + 3/step);
+size(1500,900);  
+background(101);
+noLoop();
 }
 
 void draw(){
-  if (lambda < 4.1) {
+  for (float lambda = 1; lambda < 4.1; lambda+=step) {
     //println(pop + "          " + lambda);
     nextPop = lambda * pop * (1 - pop); 
     pop = nextPop;
     
-    point(lambda *200, height/1.5 - pop * 300);
+    point((lambda * width/4 - width/2) * 2 - 5, height - pop * height);
     stroke(255);
-    lambda+=step;
-    if (lambda >= 3.1) step = 0.00005;
+    //println(lambda);
   }
-  //else end();
 }
 
-void end() {
+void keyPressed() {
  save("output.png"); 
- exit();
 }
