@@ -7,19 +7,20 @@ int b = 2;
 String Z = "";
 
 void setup() {
-  size(1280, 720);
+  size(1400, 850);
   background(255);
-  noSmooth();
   noLoop();
   strokeWeight(0.7);
-  float dens = 0.6872106;    //(lambda/step)/(height*width);
+  
+  final float dens = 0.6872106;    //(lambda/step)/(height*width);
   step = (lambda/dens)/(height * width);
+  
   //use this function to zoom into the chaos zone
-  //zoom();
+  zoom();
 }
 
 void draw() {
-  for (; lambda < 4; lambda+=step) { 
+  for (; lambda <= 4; lambda+=step) { 
     nextPop = lambda * pop * (1 - pop); 
     pop = nextPop;
 
@@ -38,7 +39,7 @@ void keyPressed() {
 void zoom() {
   a = 7;
   b = 12;
-  float densZoom = 1.5180267;
+  final float densZoom = 1.5180267;
   step = (lambda/densZoom)/(height * width);
   lambda = 3.4;
   Z = " zoomed";
