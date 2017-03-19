@@ -16,7 +16,7 @@ void setup() {
   step = (lambda/dens)/(height * width);
   
   //use this function to zoom into the chaos zone
-  zoom();
+  //zoom();
 }
 
 void draw() {
